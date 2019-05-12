@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57f64f1d075353fb384ed32c8ceeff3a",
+    "content-hash": "c249415b09b389277746335b58f3854c",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
