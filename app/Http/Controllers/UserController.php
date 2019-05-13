@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -26,7 +27,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::select('id','name','slug')->get();
+        //dd($roles);
+        return view('guardian.users.create', compact('roles'));
     }
 
     /**
@@ -37,7 +40,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

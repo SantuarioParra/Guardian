@@ -6,7 +6,7 @@
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
                 <div class="border-bottom d-flex justify-content-between align-items-center">
                     <h2 >Usuarios </h2>
-                    <a href="" class="btn btn-primary btn-sm">Crear</a>
+                    <a href="{{route('Usuarios.create')}}" class="btn btn-primary btn-sm">Crear</a>
                 </div>
                 <div class="table-responsive">
                     <table>
