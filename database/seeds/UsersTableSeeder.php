@@ -14,10 +14,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(App\User::class,20)->create()->each(function ($u){
-            $u->assignRole(Role::where('name','researcher')->value('id'));
+            $u->assignRole(Role::where('slug','researcher')->value('id'));
         });
         factory(App\User::class,5)->create()->each(function ($u){
-            $u->assignRole(Role::where('name','leader')->value('id'));
+            $u->assignRole(Role::where('slug','leader')->value('id'));
         });
 
         $user = new User();
@@ -25,5 +25,6 @@ class UsersTableSeeder extends Seeder
         $user->email = "santuarioparral@hotmail.com";
         $user->password =  Hash::make('root');
         $user->save();
+        $user->assignRole(Role::where('slug','admin')->value('id'));
     }
 }

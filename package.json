@@ -20,6 +20,18 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "vue": "^2.5.17"
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "@coreui/coreui": "^2.1.9",
+        "@coreui/coreui-plugin-chartjs-custom-tooltips": "1.2.0",
+        "@coreui/icons": "0.3.0",
+        "@fortawesome/fontawesome-free": "^5.8.2",
+        "chart.js": "2.7.3",
+        "core-js": "^2.5.7",
+        "jquery": "3.3.1",
+        "perfect-scrollbar": "^1.4.0",
+        "simple-line-icons": "^2.4.1"
     }
 }
