@@ -6,7 +6,7 @@ import base64 as base64
 
 
 def aesc(archivo):
-    key = random.get_random_bytes(16)
+    key = random.get_random_bytes(32)
     try:
         file = open(archivo, 'rb')
         data = file.read()

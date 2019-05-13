@@ -22,7 +22,7 @@ def main():
     parser.add_argument("-k", "--key", help="Llave base64 del archivo")
     args = parser.parse_args()
 
-    sdividir(args.key, 2, 5)
+    sdividir(args.key, 5, 10)
 
 
 if __name__ == '__main__':

@@ -11,6 +11,9 @@
 |
 */
 
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,4 +22,42 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('Usuarios','UserController');
+Route::resource('Usuarios','UserController')->middleware('role:admin');
+
+Route::get('/pruebaAESC',function (){
+
+    $process = new Process("python C:\laragon\www\Guardian\AES_Scripts/AES.py -c -f C:\laragon\www\Guardian\AES_Scripts\MLP2.rar");
+    $process->run();
+
+    // executes after the command finishes
+    if (!$process->isSuccessful()) {
+        throw new ProcessFailedException($process);
+    }
+
+    echo $process->getOutput();
+});
+Route::get('/pruebaAESD',function (){
+
+    $process = new Process("python C:\laragon\www\Guardian\AES_Scripts/AES.py -d -f C:\laragon\www\Guardian\AES_Scripts\MLP2.rar -k EdT1TuYIlsZnaquSOSVuHA==");
+    $process->run();
+
+    // executes after the command finishes
+    if (!$process->isSuccessful()) {
+        throw new ProcessFailedException($process);
+    }
+
+    echo $process->getOutput();
+});
+
+Route::get('/pruebaShamirD',function (){
+
+    $process = new Process("python C:\laragon\www\Guardian\AES_Scripts/Secret_Sharing.py -k EdT1TuYIlsZnaquSOSVuHA==");
+    $process->run();
+
+    // executes after the command finishes
+    if (!$process->isSuccessful()) {
+        throw new ProcessFailedException($process);
+    }
+
+    echo $process->getOutput();
+});
