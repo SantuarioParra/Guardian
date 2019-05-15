@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: secretsharingng
+Version: 0.2.11
+Summary: Tools for sharing secrets (like Bitcoin private keys), using shamir's secret sharing scheme.
+Home-page: https://github.com/covalent-hq/secret-sharing-ng
+Author: Halfmoon Labs
+Author-email: hello@halfmoon.io
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4

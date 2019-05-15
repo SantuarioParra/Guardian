@@ -16,7 +16,7 @@ def aesc(archivo):
         file = open(archivo, 'wb')
         file.write(cipherData)
         file.close()
-        return base64.standard_b64encode(key)
+        return base64.b64encode(key)
     except FileNotFoundError:
         return "404"
 
