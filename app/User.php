@@ -44,5 +44,11 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsToMany('Caffeinated\Shinobi\Models\Role')->withTimestamps();
     }
+    /**
+     * Declaración de la relacion con projectos
+    */
+    public function project(){
+        return $this->hasMany('App\Project','f_leader','id');
+    }
 
 }

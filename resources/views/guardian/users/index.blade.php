@@ -4,6 +4,22 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Holy guacamoly!</strong> {{$message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @elseif($message = Session::get('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Holy guacamoly!</strong> {{$message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
                 <div class="border-bottom d-flex justify-content-between align-items-center">
                     <h2 >Usuarios </h2>
                     <a href="{{route('Usuarios.create')}}" class="btn btn-primary btn-sm">Crear</a>
@@ -32,8 +48,8 @@
                                     @endforeach
                                     <td>
 
-                                        <form action="" method="post">
-                                            <a class="btn btn-sm btn-pill btn-outline-primary  " href="">Editar</a>
+                                        <form action="{{ route('Usuarios.destroy', $user->id)}}" method="post">
+                                            <a class="btn btn-sm btn-pill btn-outline-primary  " href="{{route('Usuarios.edit', $user->id)}}">Editar</a>
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-pill btn-sm btn-outline-danger" onclick=" return confirm('Esta seguro que desea eliminar a {{$user->name}}')" >Eliminar</button>

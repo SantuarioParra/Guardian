@@ -15,8 +15,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="">
-                    <i class="nav-icon fa fa-layer-group" style="color: white"></i>Cursos
+                <a class="nav-link " href="{{route('Proyectos.index')}}">
+                    <i class="nav-icon fa fa-layer-group" style="color: white"></i>Proyectos
                 </a>
             </li>
             <li class="nav-item">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -40,7 +41,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+       // dd($request->all());
+        $user = new User();
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = Hash::make($request->get('password'));
+        if($user->save()) {
+            $user->assignRole($request->get('role'));
+            return redirect('Usuarios')->with('success', 'Usuario creado');
+        }else{
+            return redirect('Usuarios')->with('error', 'Algo ha pasado...');
+        }
     }
 
     /**
@@ -62,7 +73,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::with('role')->find($id);
+        $roles = Role::all(['id', 'name']);
+        return view('guardian.users.edit', compact('roles', 'user'));
     }
 
     /**
@@ -74,7 +87,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->all());
+        if (array_key_exists('idRol', $request->all())) {
+            $user->role()->sync($request->get('idRol'));
+        } else {
+            //Solo se actualiza el nombre
+        }
+        return redirect('Usuarios')->with('success', 'Usuario Actualizadoly');
     }
 
     /**
@@ -85,6 +105,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if($user->delete()){
+            return redirect('Usuarios')->with('success', 'Usuario eliminado');
+        }else{
+            return redirect('Usuarios')->with('error', 'Algo ha pasado...');
+        }
+
     }
 }
