@@ -40,10 +40,9 @@ class FilesController extends Controller
         if ($request->hasFile('file')){
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
-            $url = public_path().'/temporal/'.$name;
-            $file->move(public_path().'/temporal/',$name );
-
-            $process = new Process("python C:\laragon\www\Guardian\AES_Scripts/AES.py -c -f $url");
+            $file->move(public_path('/uploads/'),$name);
+            $url = public_path('/uploads/'.$name);
+            $process = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -c -f $url");
             $process->run();
 
             // executes after the command finishes
@@ -52,7 +51,6 @@ class FilesController extends Controller
             }
 
             echo $process->getOutput();
-
             //dd($file);
             //Storage::disk('ftp')->put($name,$file);
             return $name;
