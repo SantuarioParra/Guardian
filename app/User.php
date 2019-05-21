@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Caffeinated\Shinobi\Traits\ShinobiTrait;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, ShinobiTrait;
+    use HasApiTokens,Notifiable, ShinobiTrait;
 
     /**
      * The attributes that are mass assignable.
