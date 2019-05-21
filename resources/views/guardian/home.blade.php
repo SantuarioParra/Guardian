@@ -17,6 +17,19 @@
 
                     </div>
                 </div>
+
+                <form action="{{route('files.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+                    <div class="form-group">
+                        <lavel>File</lavel>
+                        <input type="file" name = "file" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="{{route('home')}}" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

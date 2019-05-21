@@ -26,6 +26,8 @@ Route::resource('Usuarios','UserController')->middleware('role:admin');
 
 Route::resource('Proyectos', 'ProjectController');
 
+Route::resource('files','FilesController');
+
 Route::get('/pruebaAESC',function (){
 
     $process = new Process("python C:\laragon\www\Guardian\AES_Scripts/AES.py -c -f C:\laragon\www\Guardian\AES_Scripts\MLP2.rar");
