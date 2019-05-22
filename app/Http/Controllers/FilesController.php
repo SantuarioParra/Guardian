@@ -79,6 +79,7 @@ class FilesController extends Controller
                     $fragmentos = explode(",", $shamirD->getOutput());
                     array_pop($fragmentos);
                 }
+
                 return redirect("Archivos?id=$id")->with('success', ' Archivo subido al servido');
 
 

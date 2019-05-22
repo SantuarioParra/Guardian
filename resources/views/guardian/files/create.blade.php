@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a href="{{route('Proyectos.index')}}" class="btn btn-danger">Cancelar</a>
+                            <a href="{{route('Archivos.index',['id'=>$id])}}" class="btn btn-danger">Cancelar</a>
                         </div>
                     </form>
                 </div>
