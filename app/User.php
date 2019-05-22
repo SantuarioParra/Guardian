@@ -52,4 +52,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Project','f_leader','id');
     }
 
+    public function research_project(){
+        return $this->belongsToMany('App\Project')->withTimestamps();
+    }
+
 }

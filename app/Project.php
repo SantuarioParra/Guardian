@@ -20,4 +20,8 @@ class Project extends Model
     public function files(){
         return $this->hasMany('App\File')->withTimestamps();
     }
+
+    public function research(){
+        return $this->hasMany('App\User')->withTimestamps();
+    }
 }

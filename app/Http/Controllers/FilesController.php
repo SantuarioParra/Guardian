@@ -42,18 +42,33 @@ class FilesController extends Controller
             $name = $file->getClientOriginalName();
             $file->move(public_path('/uploads/'),$name);
             $url = public_path('/uploads/'.$name);
-            $process = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -c -f $url");
-            $process->run();
-
+            $aesC = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -c -f $url");
+            $aesC->run();
             // executes after the command finishes
-            if (!$process->isSuccessful()) {
-                throw new ProcessFailedException($process);
+            if (!$aesC->isSuccessful()) {
+                throw new ProcessFailedException($aesC);
             }
-
-            echo $process->getOutput();
+            $key = $aesC->getOutput();
+            if(Storage::disk('ftp')->put($name, $url)){
+                unlink($url);
+                $message ="Archivo subido al servidor";
+            }else{
+                $message ="Ha ocurrido un problema...";
+            }
+            if ($key != 404){
+                $shamirD = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -d -k $key -min 5 -max 10");
+                $shamirD->run();
+                // executes after the command finishes
+                if (!$shamirD->isSuccessful()) {
+                    throw new ProcessFailedException($shamirD);
+                }
+                $fragmentos = explode(",", $shamirD->getOutput());
+                array_pop($fragmentos);
+                //echo $fragmentos;
+            }
             //dd($file);
             //Storage::disk('ftp')->put($name,$file);
-            return $name;
+            return $fragmentos;
         }
         //dd($request->all());
     }

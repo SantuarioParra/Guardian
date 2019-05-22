@@ -16,7 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::resource('usuarios','UserAppController');
 
 
 Route::group(['prefix' => 'auth'], function () {
@@ -25,5 +24,8 @@ Route::group(['prefix' => 'auth'], function () {
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthAppController@logout');
         Route::get('user', 'AuthAppController@user');
+        Route::get('projects/leader','ResourcesAppController@own_leader_projects'); //proyectos donde eres el primer lider
+        Route::get('projects/second-leader','ResourcesAppController@own_second_leader_projects');// proyectos donde eres el segundo
+        Route::get('projects/researcher','ResourcesAppController@own_research_projects');//proyectos donde eres investigador
     });
 });

@@ -26,5 +26,12 @@ class UsersTableSeeder extends Seeder
         $user->password =  Hash::make('root');
         $user->save();
         $user->assignRole(Role::where('slug','admin')->value('id'));
+
+        $user = new User();
+        $user->name = "Antonio";
+        $user->email = "a@hotmail.com";
+        $user->password =  Hash::make('root');
+        $user->save();
+        $user->assignRole(Role::where('slug','admin')->value('id'));
     }
 }
