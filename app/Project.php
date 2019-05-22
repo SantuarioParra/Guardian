@@ -22,6 +22,6 @@ class Project extends Model
     }
 
     public function research(){
-        return $this->hasMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 }

@@ -19,6 +19,7 @@ class CreateFilesTable extends Migration
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->string('name')->nullable(false);
             $table->string('description')->nullable(true);
+            $table->integer('minr')->unsigned();
             $table->string('url')->nullable(false);
             $table->timestamps();
         });

@@ -6,7 +6,8 @@
     </button>
 
     <a class="navbar-brand" href="{{route('home')}}">
-        <img class="navbar-brand-full" src="{{asset('images/Guardian_completo.svg')}}" width="125" height="50" alt="A2ESCOM Logo">
+        <img class="navbar-brand-full d-sm-down-none" src="{{asset('images/Guardian_completo.svg')}}" width="125" height="50" alt="A2ESCOM Logo">
+        <img class="navbar-brand-full d-md-none" src="{{asset('images/Guardian.svg')}}" width="40" height="40" alt="A2ESCOM Logo">
         <img class="navbar-brand-minimized" src="{{asset('images/Guardian.svg')}}" width="40" height="40" alt="A2ESCOM Logo">
     </a>
     <!--
@@ -18,23 +19,11 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="fa fa-bars"style="color:white"></span>
     </button>
-
-    <ul class="nav navbar-nav d-md-down-none">
-        <li class="nav-item px-3">
-            <a class="nav-link " href="{{route('Usuarios.index')}}" >Usuarios</a>
-        </li>
-
-        <li class="nav-item px-3">
-            <a class="nav-link " href="">Cursos</a>
-        </li>
-
-    </ul>
-
     <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item dropdown d-sm-down-none" data-toggle="tooltip" data-placement="left" title="Notificaciones">
+        <li class="nav-item dropdown d-sm-down-none" data-toggle="tooltip" data-placement="right" title="Notificaciones">
             <a class="nav-link" href="#" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >
                 <i class="icon-bell"></i>
-                <span class="badge badge-pill badge-warning"></span>
+                <span class="badge badge-pill badge-warning">{{count(Auth::user()->notifications)}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header list-inline">
@@ -42,24 +31,52 @@
                     <a class="text-left list-inline-item" href="#">Marcar como leidas</a>
                 </div>
                 <div class="dropdown-item-text bg-light"><small class="font-weight-bold">Nuevas</small></div>
-
+                @if(count(Auth::user()->unreadNotifications )== 0)
+                    <a class="dropdown-item" href="#">
+                        <small>No hay Nuevas notificaciones</small>
+                    </a>
+                @else
+                    @foreach(Auth::user()->unreadNotifications  as $notification)
+                        <a class="dropdown-item" href="#">
+                            <small>{{$notification->data['message']. $notification->data['fragment_key']}}</small>
+                        </a>
+                    @endforeach
+                @endif
             </div>
         </li>
-        <li class="nav-item dropdown px-3">
+        <li class="nav-item dropdown d-md-none ">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <strong>{{Auth::user()->name}}</strong>
+                <i class="icon-bell"></i><span class="badge badge-info">{{count(Auth::user()->notifications)}}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <h6 class="dropdown-header">Notifications</h6>
+                @if(count(Auth::user()->unreadNotifications )== 0)
+                    <a class="dropdown-item" href="#">
+                        <small>No hay Nuevas notificaciones</small>
+                    </a>
+                @else
+                    @foreach(Auth::user()->unreadNotifications  as $notification)
+                        <a class="dropdown-item" href="#"style="max-width: 3px;">
+                            <form action="{{route('Archivos.destroy', $notification->data['message'])}}" method="post">
+                                @csrf
+                                @method('POST')
+                                <button  class="btn btn-sm"><small>{{$notification->data['message']}}</small></button>
+                            </form>
+                        </a>
+                    @endforeach
+                @endif
+            </div>
+        </li>
+        <li class="nav-item dropdown px-3 ">
+            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <small><strong>{{Auth::user()->name}}</strong></small>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header text-center">
                     <strong>Bienvenido {{Auth::user()->name}}</strong>
                 </div>
-                <a class="dropdown-item d-md-none " href="#">
-                    <i class="fa fa-bell-o"></i> Notificaciones
-                    <span class="badge badge-info">42</span>
-                </a>
-
                 <div class="dropdown-header text-center d-md-none">
-                    <strong>Configuración</strong>
+                    <small><strong>Configuración</strong></small>
                 </div>
                 <a class="dropdown-item" href="#">
                     <i class="fa fa-user"></i> Perfil</a>

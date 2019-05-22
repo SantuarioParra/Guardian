@@ -22,7 +22,9 @@
 
                 <div class="border-bottom d-flex justify-content-between align-items-center">
                     <h2 >{{ __('Projects') }}</h2>
+                    @role('admin')
                     <a href="{{route('Proyectos.create')}}" class="btn btn-primary btn-sm">Crear</a>
+                    @endrole
                 </div>
             </div>
         </div>
@@ -40,12 +42,14 @@
 
                             <h4 class="card-text"> {{$project->name}}</h4>
                             <div class="btn-group" role="group" aria-label="Opciones">
+                                @role('admin')
                                 <a class="btn btn-sm btn-outline-primary "href="{{route('Proyectos.edit', $project->id )}}"><i class="icon-pencil"></i> </a>
                                 <form action="{{route('Proyectos.destroy', $project->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button  class="btn btn-sm btn-outline-danger" onclick=" return confirm('Esta seguro que desea eliminar el proyecto {{$project->name}}')" ><a class="fa fa-times" ></a></button>
                                 </form>
+                                @endrole
                             </div>
 
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Carbon\Carbon;
+use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
 
 class ResourcesAppController extends Controller
@@ -31,6 +33,9 @@ class ResourcesAppController extends Controller
         $projects_r = User::with('research_project')->where('id','=', $request->user()->id)->first();
         $projects_r = $projects_r['research_project'];
         return response()->json($projects_r);
+
+    }
+    public function notification(Request $request){
 
     }
 }

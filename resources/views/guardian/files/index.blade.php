@@ -41,11 +41,13 @@
                                     <h4 class="card-text"> {{$file->name}}</h4>
                                     <div class="btn-group" role="group" aria-label="Opciones">
                                         <a class="btn btn-sm btn-outline-primary "href="{{route('Archivos.edit', $file->id )}}"><i class="icon-pencil"></i> </a>
+                                        @role('admin')
                                         <form action="{{route('Archivos.destroy', $file->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button  class="btn btn-sm btn-outline-danger" onclick=" return confirm('Esta seguro que desea eliminar el archivo {{$file->name}}')" ><a class="fa fa-times" ></a></button>
                                         </form>
+                                        @endrole
                                     </div>
 
 

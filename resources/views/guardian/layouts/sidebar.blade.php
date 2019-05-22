@@ -8,12 +8,13 @@
                 </a>
             </li>
             <li class="nav-title">Theme</li>
+            @role('admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{route('Usuarios.index')}}" >
                     <i class="nav-icon icon-people" style="color: white"></i>Usuarios
                 </a>
             </li>
-
+            @endrole
             <li class="nav-item">
                 <a class="nav-link " href="{{route('Proyectos.index')}}">
                     <i class="nav-icon fa fa-layer-group" style="color: white"></i>Proyectos

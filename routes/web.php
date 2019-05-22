@@ -22,11 +22,15 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware(['auth'])->group(function (){
+
 Route::resource('Usuarios','UserController')->middleware('role:admin');
 
 Route::resource('Proyectos', 'ProjectController');
 
 Route::resource('Archivos','FilesController');
+
+});
 
 Route::get('/pruebaAESC',function (){
 

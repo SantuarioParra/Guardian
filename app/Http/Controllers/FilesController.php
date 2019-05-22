@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\File;
+use App\Notifications\llavesNotification;
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -46,10 +48,28 @@ class FilesController extends Controller
      */
     public function store(Request $request)
     {
+
+        $cont=0;
         $fileR= new File();
         $id = $request->get('id');
         $fileR->project_id = $id;
         $fileR->description = $request->get('description');
+
+        //obtencion de datos
+        $investigadores = Project::with('research')->find($id);
+        $investigadores = $investigadores['research'];
+        $cont += $investigadores->count('id');
+        $lideres = Project::find($id);
+        if($lideres->f_leader != $lideres->s_leader){
+            $cont +=2;
+            $lideres = User::where('id','=',$lideres->f_leader)->orWhere('id','=',$lideres->s_leader)->get();
+
+        }else{
+            $lideres = User::where('id','=',$lideres->f_leader)->get();
+            $cont +=1;
+        }
+
+        $fileR->minr = $cont;
         if ($request->hasFile('file')){
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
@@ -70,7 +90,13 @@ class FilesController extends Controller
                 $fileR->save();
                 //separacion de llave
                 if ($key != 404){
-                    $shamirD = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -d -k $key -min 5 -max 10");
+                    if($cont < 5){
+                        $shamirD = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -d -k $key -min $cont -max 10");
+                    }elseif ($cont ==5){
+                        $shamirD = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -d -k $key -min 3 -max 10");
+                    }else if ($cont>5){
+                        $shamirD = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -d -k $key -min 5 -max 10");
+                    }
                     $shamirD->run();
                     // executes after the command finishes
                     if (!$shamirD->isSuccessful()) {
@@ -78,6 +104,24 @@ class FilesController extends Controller
                     }
                     $fragmentos = explode(",", $shamirD->getOutput());
                     array_pop($fragmentos);
+
+                    if ($cont==2){
+                        for ($i=0; $i<$cont; $i++){
+                            $user = $lideres[$i] ;
+                            $user->notify(new llavesNotification($id,$fragmentos[$i],"Proyecto: $id key"));
+                        }
+                    }elseif($cont>2){
+                        for ($i=0; $i<$cont; $i++){
+                            if ($i<2) {
+                                $user = $lideres[$i];
+                                $user->notify(new llavesNotification($id, $fragmentos[$i], "Proyecto: $id key"));
+                            }else{
+                                $user = $investigadores[$i-2] ;
+                                $user->notify(new llavesNotification($id,$fragmentos[$i],"Proyecto: $id key"));
+                            }
+                        }
+                    }
+
                 }
 
                 return redirect("Archivos?id=$id")->with('success', ' Archivo subido al servido');
