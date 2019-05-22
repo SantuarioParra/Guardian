@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
+use App\Project;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -14,9 +16,14 @@ class FilesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $files = Project::with('files')->where('id','=',$request->get('id'))->first();
+        $files = $files['files'];
+        $id = $request->get('id');
+        //dd($files);
+        return view('guardian.files.index',compact('files','id'));
+
     }
 
     /**
@@ -24,9 +31,11 @@ class FilesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        //dd();
+        $id = $request->get('id');
+        return view('guardian.files.create',compact('id'));
     }
 
     /**
@@ -37,40 +46,46 @@ class FilesController extends Controller
      */
     public function store(Request $request)
     {
+        $fileR= new File();
+        $id = $request->get('id');
+        $fileR->project_id = $id;
+        $fileR->description = $request->get('description');
         if ($request->hasFile('file')){
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
+            $fileR->name =$name; //almacenar el nombre del archivo
             $file->move(public_path('/uploads/'),$name);
-            $url = public_path('/uploads/'.$name);
-            $aesC = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -c -f $url");
+            $url_temp = public_path('/uploads/'.$name);
+            $aesC = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -c -f $url_temp");
             $aesC->run();
             // executes after the command finishes
             if (!$aesC->isSuccessful()) {
                 throw new ProcessFailedException($aesC);
             }
             $key = $aesC->getOutput();
-            if(Storage::disk('ftp')->put($name, $url)){
-                unlink($url);
-                $message ="Archivo subido al servidor";
-            }else{
-                $message ="Ha ocurrido un problema...";
-            }
-            if ($key != 404){
-                $shamirD = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -d -k $key -min 5 -max 10");
-                $shamirD->run();
-                // executes after the command finishes
-                if (!$shamirD->isSuccessful()) {
-                    throw new ProcessFailedException($shamirD);
+            if(Storage::disk('ftp')->put($name, $url_temp)){
+                unlink($url_temp);
+                $url = Storage::disk('ftp')->get($name);
+                $fileR->url = $url;
+                $fileR->save();
+                //separacion de llave
+                if ($key != 404){
+                    $shamirD = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -d -k $key -min 5 -max 10");
+                    $shamirD->run();
+                    // executes after the command finishes
+                    if (!$shamirD->isSuccessful()) {
+                        throw new ProcessFailedException($shamirD);
+                    }
+                    $fragmentos = explode(",", $shamirD->getOutput());
+                    array_pop($fragmentos);
                 }
-                $fragmentos = explode(",", $shamirD->getOutput());
-                array_pop($fragmentos);
-                //echo $fragmentos;
+                return redirect("Archivos?id=$id")->with('success', ' Archivo subido al servido');
+
+
+            }else{
+                return redirect("Archivos?id=$id")->with('error', 'Ha ocurrido un problema...');
             }
-            //dd($file);
-            //Storage::disk('ftp')->put($name,$file);
-            return $fragmentos;
         }
-        //dd($request->all());
     }
 
     /**

@@ -8,6 +8,6 @@ class File extends Model
 {
 
     public function project(){
-        return $this->belongsTo('App\Project')->withTimestamps();
+        return $this->belongsTo('App\Project');
     }
 }

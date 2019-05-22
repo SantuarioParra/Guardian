@@ -36,8 +36,19 @@
                 <div class="col-md-3">
                 <div class="py-2">
                     <div class="card" style="max-width: 18rem;">
-                        <div class="card-header">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+
                             <h4 class="card-text"> {{$project->name}}</h4>
+                            <div class="btn-group" role="group" aria-label="Opciones">
+                                <a class="btn btn-sm btn-outline-primary "href="{{route('Proyectos.edit', $project->id )}}"><i class="icon-pencil"></i> </a>
+                                <form action="{{route('Proyectos.destroy', $project->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button  class="btn btn-sm btn-outline-danger" onclick=" return confirm('Esta seguro que desea eliminar el proyecto {{$project->name}}')" ><a class="fa fa-times" ></a></button>
+                                </form>
+                            </div>
+
+
                         </div>
                         <div class="card-body">
 
@@ -45,14 +56,10 @@
                                 <h6>Descripción: <small>{{$project->description}}</small></h6>
                             </div>
                             <h6>Lider de proyecto: <small class="border-bottom">{{$project->user->name}}</small></h6>
+
                         </div>
-                        <div class="card-footer text-center">
-                            <form action="{{route('Proyectos.destroy', $project->id)}}" method="post">
-                                <a class="btn btn-sm btn-pill btn-outline-primary  " href="{{route('Proyectos.edit', $project->id )}}">Editar</a>
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-pill btn-sm btn-outline-danger" onclick=" return confirm('Esta seguro que desea eliminar el proyecto {{$project->name}}')" >Eliminar</button>
-                            </form>
+                        <div class="card-footer">
+                            <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="{{route('Archivos.index', ['id'=>$project->id] )}}">Archivos <i class="icon-docs"></i></a>
                         </div>
                     </div>
 

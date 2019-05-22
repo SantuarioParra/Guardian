@@ -13,7 +13,7 @@ class ResourcesAppController extends Controller
 
         $projects = User::with('project')->where('id','=', $request->user()->id)->first();
         $projects = $projects['project'];
-        return response()->json(['projects_f_leader'=>$projects]);
+        return response()->json($projects);
 
     }
     public function own_second_leader_projects(Request $request){
@@ -23,14 +23,14 @@ class ResourcesAppController extends Controller
             ->select('projects.id','projects.f_leader','projects.s_leader','projects.name','projects.description','finished_at','projects.created_at','projects.updated_at')
             ->get();
 
-        return response()->json(['projects_s_leader'=>$projects_s]);
+        return response()->json($projects_s);
 
     }
     public function own_research_projects(Request $request){
 
         $projects_r = User::with('research_project')->where('id','=', $request->user()->id)->first();
         $projects_r = $projects_r['research_project'];
-        return response()->json(['projects_researcher'=>$projects_r]);
+        return response()->json($projects_r);
 
     }
 }

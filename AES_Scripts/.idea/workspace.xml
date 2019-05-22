@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ca3ffb-0505-4e33-a92c-025f298e4de3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../resources/views/guardian/files/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/guardian/files/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../resources/views/guardian/files/update.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AES.py" beforeDir="false" afterPath="$PROJECT_DIR$/AES.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Secret_Sharing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Secret_Sharing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/UserAppController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/FilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/FilesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/seeds/UsersTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/../database/seeds/UsersTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/guardian/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/guardian/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/guardian/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/guardian/layouts/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/guardian/projects/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/guardian/projects/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +27,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AES.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
@@ -35,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Secret_Sharing.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -207,12 +211,12 @@
       <workItem from="1557868737512" duration="1040000" />
       <workItem from="1557875153617" duration="2404000" />
       <workItem from="1558410583395" duration="703000" />
-      <workItem from="1558473423580" duration="3759000" />
+      <workItem from="1558473423580" duration="4358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15126000" />
+    <option name="totallyTimeSpent" value="15725000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -262,22 +266,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AES.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Secret_Sharing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding>
             <element signature="e#2#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AES.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

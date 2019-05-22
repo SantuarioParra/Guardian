@@ -19,10 +19,6 @@
                     <i class="nav-icon fa fa-layer-group" style="color: white"></i>Proyectos
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="nav-icon icon-pencil" style="color: white"></i> Publicaciones</a>
-            </li>
         </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>

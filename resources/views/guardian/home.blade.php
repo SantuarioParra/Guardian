@@ -18,7 +18,7 @@
                     </div>
                 </div>
 
-                <form action="{{route('files.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('Archivos.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="form-group">

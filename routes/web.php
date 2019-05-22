@@ -26,7 +26,7 @@ Route::resource('Usuarios','UserController')->middleware('role:admin');
 
 Route::resource('Proyectos', 'ProjectController');
 
-Route::resource('files','FilesController');
+Route::resource('Archivos','FilesController');
 
 Route::get('/pruebaAESC',function (){
 
