@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Carbon\Carbon;
-use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\DB;
 
 class ResourcesAppController extends Controller
@@ -35,7 +32,7 @@ class ResourcesAppController extends Controller
         return response()->json($projects_r);
 
     }
-    public function notification(Request $request){
+    public function notification(){
 
     }
 }

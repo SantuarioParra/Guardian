@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
+        //fcm
+        LaravelFCM\FCMServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -224,6 +226,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Shinobi' => Caffeinated\Shinobi\Facades\Shinobi::class,
+        //FCM
+        'FCM'      => LaravelFCM\Facades\FCM::class,
+        'FCMGroup' => LaravelFCM\Facades\FCMGroup::class, // Optional
 
     ],
 

@@ -69,3 +69,8 @@ Route::get('/pruebaShamirD',function (){
 
     echo $process->getOutput();
 });
+
+Route::get('/prueba',function (){
+    $message = new \App\Http\Controllers\FCMController();
+    echo $message->sendMessage();
+});

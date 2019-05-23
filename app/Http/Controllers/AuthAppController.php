@@ -14,7 +14,6 @@ class AuthAppController extends Controller
             'email'       => 'required|string|email',
             'password'    => 'required|string',
         ]);
-
         $credentials = request(['email', 'password']);
         if (!Auth::attempt($credentials)) {
             return response()->json([
@@ -25,6 +24,9 @@ class AuthAppController extends Controller
         $token = $tokenResult->token;
         $token->save();
 
+        $user = User::find($request->user()->id);
+        $user->device_token = $request['device_token'];
+        $user->update();
         return response()->json([
             'access_token' => $tokenResult->accessToken,
             'token_type'   => 'Bearer',
@@ -39,7 +41,6 @@ class AuthAppController extends Controller
         return response()->json(['message' =>
             'Successfully logged out']);
     }
-
     public function user(Request $request)
     {
         return response()->json($request->user());
