@@ -48,13 +48,8 @@ class FilesController extends Controller
      */
     public function store(Request $request)
     {
-
         $cont=0;
-        $fileR= new File();
         $id = $request->get('id');
-        $fileR->project_id = $id;
-        $fileR->description = $request->get('description');
-
         //obtencion de datos
         $investigadores = Project::with('research')->find($id);
         $investigadores = $investigadores['research'];
@@ -69,25 +64,28 @@ class FilesController extends Controller
             $cont +=1;
         }
 
-        $fileR->minr = $cont;
+
         if ($request->hasFile('file')){
             $file = $request->file('file');
-            $name = $file->getClientOriginalName();
-            $fileR->name =$name; //almacenar el nombre del archivo
-            $file->move(public_path('/uploads/'),$name);
-            $url_temp = public_path('/uploads/'.$name);
-            $aesC = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -c -f $url_temp");
+            $name = $file->getClientOriginalName(); //almacenar el nombre del archivo
+
+            File::updateOrCreate(
+                ['name'=>$name],
+                ['project_id'=>$id, 'description'=>$request->get('description'), 'minr'=>$cont]
+            );
+
+            $file = $file->move(public_path('\uploads\\'),$name);
+            $url_temp = public_path('\uploads\\'.$name);
+            $aesC = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -c -f \"$url_temp\"");
             $aesC->run();
             // executes after the command finishes
             if (!$aesC->isSuccessful()) {
                 throw new ProcessFailedException($aesC);
             }
             $key = $aesC->getOutput();
-            if(Storage::disk('ftp')->put($name, $url_temp)){
+
+            if(Storage::disk("ftp")->put($name,file_get_contents($file))){
                 unlink($url_temp);
-                $url = Storage::disk('ftp')->get($name);
-                $fileR->url = $url;
-                $fileR->save();
                 //separacion de llave
                 if ($key != 404){
                     if($cont < 5){
@@ -104,20 +102,25 @@ class FilesController extends Controller
                     }
                     $fragmentos = explode(",", $shamirD->getOutput());
                     array_pop($fragmentos);
-
                     if ($cont==2){
                         for ($i=0; $i<$cont; $i++){
                             $user = $lideres[$i] ;
-                            $user->notify(new llavesNotification($id,$fragmentos[$i],"Proyecto: $id key"));
+                            $user->notify(new llavesNotification('Nueva llave',$id,"Has recibido una nueva llave"));
+                            $message = new FCMController();
+                            $message->sendMessage(120,'Nueva llave',"Has recibido una nueva llave",'default',['id_project'=>$id,'fragment'=>$fragmentos[$i]],$user->device_token);
                         }
                     }elseif($cont>2){
                         for ($i=0; $i<$cont; $i++){
                             if ($i<2) {
                                 $user = $lideres[$i];
-                                $user->notify(new llavesNotification($id, $fragmentos[$i], "Proyecto: $id key"));
+                                $user->notify(new llavesNotification('Nueva llave',$id,"Has recibido una nueva llave"));
+                                $message = new FCMController();
+                                $message->sendMessage(120,'Nueva llave',"Has recibido una nueva llave",'default',['id_project'=>$id,'fragment'=>$fragmentos[$i]],$user->device_token);
                             }else{
                                 $user = $investigadores[$i-2] ;
-                                $user->notify(new llavesNotification($id,$fragmentos[$i],"Proyecto: $id key"));
+                                $user->notify(new llavesNotification('Nueva llave',$id,"Has recibido una nueva llave"));
+                                $message = new FCMController();
+                                $message->sendMessage(120,'Nueva llave',"Has recibido una nueva llave",'default',['id_project'=>$id,'fragment'=>$fragmentos[$i]],$user->device_token);
                             }
                         }
                     }
@@ -125,11 +128,10 @@ class FilesController extends Controller
                 }
 
                 return redirect("Archivos?id=$id")->with('success', ' Archivo subido al servido');
-
-
             }else{
                 return redirect("Archivos?id=$id")->with('error', 'Ha ocurrido un problema...');
             }
+
         }
     }
 
@@ -141,7 +143,18 @@ class FilesController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $file_c = File::find($id);
+
+        if(Storage::disk('ftp')->exists($file_c->name)){
+            $content = Storage::disk('ftp')->get($file_c->name);
+            Storage::disk('local')->put($file_c->name,$content);
+             //Storage::disk('local')->move($file,public_path('uploads'));
+            return redirect("Archivos?id=$file_c->project_id")->with('success', ' Archivo descargado') ;
+        }else{
+            return redirect("Archivos?id=$file_c->project_id")->with('error', 'Ha ocurrido un problema...');
+        }
+
     }
 
     /**
@@ -152,7 +165,7 @@ class FilesController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

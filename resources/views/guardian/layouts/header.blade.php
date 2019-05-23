@@ -38,7 +38,7 @@
                 @else
                     @foreach(Auth::user()->unreadNotifications  as $notification)
                         <a class="dropdown-item" href="#">
-                            <small>{{$notification->data['message']. $notification->data['fragment_key']}}</small>
+                            <small>{{$notification->data['title']. $notification->data['message']}}</small>
                         </a>
                     @endforeach
                 @endif

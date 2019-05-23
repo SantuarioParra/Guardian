@@ -30,6 +30,8 @@ Route::resource('Proyectos', 'ProjectController');
 
 Route::resource('Archivos','FilesController');
 
+Route::resource('Investigadores','ResearchesController');
+
 });
 
 Route::get('/pruebaAESC',function (){
@@ -67,10 +69,10 @@ Route::get('/pruebaShamirD',function (){
         throw new ProcessFailedException($process);
     }
 
+
     echo $process->getOutput();
 });
 
 Route::get('/prueba',function (){
-    $message = new \App\Http\Controllers\FCMController();
-    echo $message->sendMessage();
+
 });

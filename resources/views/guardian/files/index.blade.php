@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="#">Descargar <i class="icon-docs"></i></a>
+                                    <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="{{route('Archivos.show',$file->id)}}">Descargar <i class="icon-docs"></i></a>
                                 </div>
                             </div>
 

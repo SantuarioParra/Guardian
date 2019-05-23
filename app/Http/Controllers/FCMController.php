@@ -10,9 +10,9 @@ use FCM;
 
 class FCMController extends Controller
 {
-    public function sendMessage($life_time,$title, $body, $sound, $data){
+    public function sendMessage($life_time,$title, $body, $sound, $data, $token){
         $optionBuilder = new OptionsBuilder();
-        $optionBuilder->setTimeToLive($life_time*20);
+        $optionBuilder->setTimeToLive($life_time);
 
         $notificationBuilder = new PayloadNotificationBuilder($title);
         $notificationBuilder->setBody($body)
@@ -24,9 +24,8 @@ class FCMController extends Controller
         $option = $optionBuilder->build();
         $notification = $notificationBuilder->build();
         $data = $dataBuilder->build();
-        $token = "dN-sfRejVws:APA91bEc5Hoor_Yt5dUjhPAjxpTlNjQh9T2aIbf0gZdy9LHnellbnbeG5GVAPKzKVsOkkSuINzMG_J6eotZVYhGS8sYs0iGHcLeIWCTW6nQyeBUKplX9eI57qN2yz69k1xe3DjfepSNv";
         //dd(FCM::sendTo($token, $option, $notification, $data));
         $downstreamResponse = FCM::sendTo($token, $option, $notification, $data);
-        return $downstreamResponse->numberSuccess();;
+        return $downstreamResponse->numberSuccess();
     }
 }

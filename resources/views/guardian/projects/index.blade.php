@@ -43,7 +43,8 @@
                             <h4 class="card-text"> {{$project->name}}</h4>
                             <div class="btn-group" role="group" aria-label="Opciones">
                                 @role('admin')
-                                <a class="btn btn-sm btn-outline-primary "href="{{route('Proyectos.edit', $project->id )}}"><i class="icon-pencil"></i> </a>
+                                <a class="btn btn-sm btn-outline-primary "href="{{route('Investigadores.index', ['id'=>$project->id] )}}" data-toggle="tooltip" data-placement="top" title="Investigadores"><i class="fa fa-flask"></i></a>
+                                <a class="btn btn-sm btn-outline-primary "href="{{route('Proyectos.edit', $project->id )}}" data-toggle="tooltip" data-placement="top" title="Editar" ><i class="icon-pencil"></i> </a>
                                 <form action="{{route('Proyectos.destroy', $project->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
@@ -63,7 +64,7 @@
 
                         </div>
                         <div class="card-footer">
-                            <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="{{route('Archivos.index', ['id'=>$project->id] )}}">Archivos <i class="icon-docs"></i></a>
+                            <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="{{route('Archivos.index', ['id'=>$project->id] )}}">Archivo de proyecto <i class="icon-docs"></i></a>
                         </div>
                     </div>
 

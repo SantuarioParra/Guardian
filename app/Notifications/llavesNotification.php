@@ -10,18 +10,18 @@ use Illuminate\Notifications\Messages\MailMessage;
 class llavesNotification extends Notification
 {
     use Queueable;
+    private $title;
     private $message;
-    private $id_file;
-    private $fragment_key;
+    private $id_project;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($id_file, $fragment_key, $message)
+    public function __construct($title,$id_project, $message)
     {
-        $this->id_file = $id_file;
-        $this->fragment_key = $fragment_key;
+        $this->title =$title;
+        $this->id_project = $id_project;
         $this->message = $message;
     }
 
@@ -59,8 +59,8 @@ class llavesNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'id_file' => $this->id_file,
-            'fragment_key' => $this->fragment_key,
+            'title' => $this->title,
+            'id_file' => $this->id_project,
             'message' => $this->message
         ];
     }
