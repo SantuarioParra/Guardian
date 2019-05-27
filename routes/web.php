@@ -32,6 +32,8 @@ Route::resource('Archivos','FilesController',['except'=>['edit','update']]);
 
 Route::resource('Investigadores','ResearchesController');
 
+Route::post('/pedirllave','EventoController@solicitarLlave')->name('pedirllave');
+
 });
 
 Route::get('/pruebaAESC',function (){

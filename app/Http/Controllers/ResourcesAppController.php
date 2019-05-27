@@ -38,9 +38,9 @@ class ResourcesAppController extends Controller
         $fragment->project_id = $request->get('project_id');
         $fragment->fragment = $request->get('fragment');
         if ($fragment->save()){
-            return response()->json(['success'=>"Fragmento recibido correctamente"]);
+            return response()->json(['response'=>'1']);
         }else{
-            return response()->json(['error'=>"El fragmento no fue recibido correctamente intente en unos momentos"]);
+            return response()->json(['response'=>'0']);
         }
     }
 }

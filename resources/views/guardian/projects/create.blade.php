@@ -41,7 +41,7 @@
                                 </div>
                             <div class="col-md-4 mb-3">
                                 <label for="finished_at">Fecha de finalización</label>
-                                <input type="datetime-local" name="finished_at" class="form-control" id="finished_at">
+                                <input type="datetime-local" name="finished_at" class="form-control" id="finished_at" required>
                             </div>
                         </div>
                         <div class="form-group">

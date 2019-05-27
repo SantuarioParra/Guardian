@@ -38,6 +38,25 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
+     function descargar(id,id2,minr){
+        alert(id);
+        alert(id2);
+        alert(minr);
+        var asd = fetch('./Pedirllave', {method: 'POST',
+            body: JSON.stringify({
+                id: id
+            })
+        });
+        alert(asd);
+    }
+    function descargar2(url) {
+
+        var asd = setInterval(descargar21, 10000);
+        function descargar21()
+        {
+            window.location.href = url;
+        }
+    }
 </script>
 </body>
 </html>

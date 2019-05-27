@@ -32,6 +32,34 @@ class UsersTableSeeder extends Seeder
         $user->email = "a@hotmail.com";
         $user->password =  Hash::make('root');
         $user->save();
-        $user->assignRole(Role::where('slug','admin')->value('id'));
+        $user->assignRole(Role::where('slug','researcher')->value('id'));
+
+        $user = new User();
+        $user->name = "Bob";
+        $user->email = "b@hotmail.com";
+        $user->password =  Hash::make('root');
+        $user->save();
+        $user->assignRole(Role::where('slug','researcher')->value('id'));
+        $user = new User();
+
+        $user->name = "Cesar";
+        $user->email = "c@hotmail.com";
+        $user->password =  Hash::make('root');
+        $user->save();
+        $user->assignRole(Role::where('slug','researcher')->value('id'));
+        $user = new User();
+
+        $user->name = "Denis";
+        $user->email = "d@hotmail.com";
+        $user->password =  Hash::make('root');
+        $user->save();
+        $user->assignRole(Role::where('slug','researcher')->value('id'));
+        $user = new User();
+
+        $user->name = "Edgar";
+        $user->email = "e@hotmail.com";
+        $user->password =  Hash::make('root');
+        $user->save();
+        $user->assignRole(Role::where('slug','researcher')->value('id'));
     }
 }

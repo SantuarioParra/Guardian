@@ -54,6 +54,11 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
+                                    <form action="{{route('pedirllave',['id'=>$id])}}" method="post">
+                                        @csrf
+                                        @method('POST')
+                                        <button  class="btn btn-sm btn-pill btn-block btn-outline-success" >Solicitar llaves</button>
+                                    </form>
                                     <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="{{route('Archivos.show',['id'=>$files->id,'project_id'=>$id])}}">Descargar <i class="icon-docs"></i></a>
                                 </div>
                             </div>

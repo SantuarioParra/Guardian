@@ -133,6 +133,7 @@ class FilesController extends Controller
                     }
 
                 }
+                //  dd($key,$fragmentos);
                 return redirect("Archivos?id=$id")->with('success', ' Archivo subido al servido');
             }else{
                 return redirect("Archivos?id=$id")->with('error', 'Ha ocurrido un problema...');
@@ -156,40 +157,46 @@ class FilesController extends Controller
         $file_c = File::find($id);
         //Se obtienen los fragmentos de la base de datos
         $fragments = Key::where('project_id','=',$request->get('project_id'))->get();
-        foreach ($fragments as $fragment){
-            $key = $key.$fragment->fragment.',';
-        }
-        $key = substr($key,0,-1);
-
-        //incia el ´proceso de reconstruccion
-        $shamir_unir = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -u -f \"$key\" -min $file_c->minr");
-        $shamir_unir->run();
-        // executes after the command finishes
-        if (!$shamir_unir->isSuccessful()) {
-            throw new ProcessFailedException($shamir_unir);
-        }
-        $key = $shamir_unir->getOutput();
-        $key = substr($key,2,-3); //se limpia la llave de caracteres raros
-
-        if(Storage::disk('ftp')->exists($file_c->name)){
-            $content = Storage::disk('ftp')->get($file_c->name);
-            Storage::disk('local')->put($file_c->name,$content);
-
-            $url_temp = public_path('\uploads\\').$file_c->name;//obtener url
-
-            //Proceso de descifrado
-            $aesD = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -d -f \"$url_temp\" -k \"$key\" ");
-            $aesD->run();
-            // executes after the command finishes
-            if (!$aesD->isSuccessful()) {
-                throw new ProcessFailedException($aesD);
+        if((int)$file_c->minr==count($fragments)) {
+            foreach ($fragments as $fragment) {
+                $key = $key . $fragment->fragment . ',';
             }
-            $respuesta= $aesD->getOutput();
+            $key = substr($key, 0, -1);
 
-            return  response()->download($url_temp)->deleteFileAfterSend();
+            //incia el ´proceso de reconstruccion
+            $shamir_unir = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -u -f \"$key\" -min $file_c->minr");
+            $shamir_unir->run();
+            // executes after the command finishes
+            if (!$shamir_unir->isSuccessful()) {
+                throw new ProcessFailedException($shamir_unir);
+            }
+            $key = $shamir_unir->getOutput();
+            $key = substr($key, 2, -3); //se limpia la llave de caracteres raros
+            $fragments->delete();
+            //dd($key);
+            if (Storage::disk('ftp')->exists($file_c->name)) {
+                $content = Storage::disk('ftp')->get($file_c->name);
+                Storage::disk('local')->put($file_c->name, $content);
+
+                $url_temp = public_path('\uploads\\') . $file_c->name;//obtener url
+
+                //Proceso de descifrado
+                $aesD = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -d -f \"$url_temp\" -k \"$key\" ");
+                $aesD->run();
+                // executes after the command finishes
+                if (!$aesD->isSuccessful()) {
+                    throw new ProcessFailedException($aesD);
+                }
+                $respuesta = $aesD->getOutput();
+
+                return response()->download($url_temp)->deleteFileAfterSend();
+            } else {
+                return redirect("Archivos?id=$file_c->project_id")->with('error', 'Ha ocurrido un problema...');
+            }
         }else{
-            return  redirect("Archivos?id=$file_c->project_id")->with('error', 'Ha ocurrido un problema...');
+            return redirect("Archivos?id=$file_c->project_id")->with('error', 'no hay suficientes llaves intente mas tarde...');
         }
+
 
     }
 
