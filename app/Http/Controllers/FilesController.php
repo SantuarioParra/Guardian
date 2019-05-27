@@ -53,8 +53,9 @@ class FilesController extends Controller
 
         $cont=0;
         $id = $request->get('id');
-        $one = File::where('project_id','=',$id);
-        if($one==null){
+        $one = File::where('project_id','=',$id)->first();
+        //dd($one);
+
         //obtencion de datos
         $investigadores = Project::with('research')->find($id);
         $investigadores = $investigadores['research'];
@@ -73,6 +74,8 @@ class FilesController extends Controller
             $file = $request->file('file');
             $name = $file->getClientOriginalName(); //almacenar el nombre del archivo
 
+            if($one == null || $one->name == $name){
+
             File::updateOrCreate(
                 ['name'=>$name],
                 ['project_id'=>$id, 'description'=>$request->get('description'), 'minr'=>$cont]
@@ -87,7 +90,6 @@ class FilesController extends Controller
                 throw new ProcessFailedException($aesC);
             }
             $key = $aesC->getOutput();
-
             if(Storage::disk("ftp")->put($name,file_get_contents($file))){
                 unlink($url_temp);
                 //separacion de llave
@@ -131,17 +133,14 @@ class FilesController extends Controller
                     }
 
                 }
-
                 return redirect("Archivos?id=$id")->with('success', ' Archivo subido al servido');
             }else{
                 return redirect("Archivos?id=$id")->with('error', 'Ha ocurrido un problema...');
             }
+            }else{
+                return redirect("Archivos?id=$id")->with('error', 'Ya existe un archivo de proyecto, actualicelo con una nueva version o eliminelo para subir uno nuevo');
+            }
 
-
-        }
-        }
-        else{
-            return redirect("Archivos?id=$id")->with('error', 'Ya existe un archivo de proyecto, actualicelo con una nueva version o eliminelo para subir uno nuevo');
         }
     }
 
@@ -226,7 +225,8 @@ class FilesController extends Controller
     public function destroy($id)
     {
         $file = File::find($id);
-        if(Storage::disk('ftp')->delete($file->name)){
+        //dd($file->name);
+        if(Storage::disk('ftp')->delete("$file->name")){
             $file->delete();
             return redirect("Archivos?id=$file->project_id")->with('success', ' Archivo Eliminado') ;
         }else{
