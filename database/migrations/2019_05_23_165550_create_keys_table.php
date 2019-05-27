@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLlaveroTable extends Migration
+class CreateKeysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateLlaveroTable extends Migration
      */
     public function up()
     {
-        Schema::create('llavero', function (Blueprint $table) {
+        Schema::create('keys', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_proyecto');
-            $table->string('fragmento');
+            $table->integer('project_id');
+            $table->string('fragment');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateLlaveroTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('llavero');
+        Schema::dropIfExists('keys');
     }
 }

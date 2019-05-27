@@ -27,7 +27,7 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('projects/leader','ResourcesAppController@own_leader_projects'); //proyectos donde eres el primer lider
         Route::get('projects/second-leader','ResourcesAppController@own_second_leader_projects');// proyectos donde eres el segundo
         Route::get('projects/researcher','ResourcesAppController@own_research_projects');//proyectos donde eres investigador
-        Route::get('notification','ResourcesAppController@notification');
+        Route::post('notification','ResourcesAppController@get_fragment');
 
     });
 });

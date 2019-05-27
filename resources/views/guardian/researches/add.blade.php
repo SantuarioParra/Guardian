@@ -21,13 +21,12 @@
                 @endif
 
                 <div class="border-bottom d-flex justify-content-between align-items-center">
-                    <h2 >Investigadores del proyecto </h2>
-                    <a href="{{route('Investigadores.create',['id'=>$id])}}" class="btn btn-primary btn-sm">Añadir</a>
+                    <h2 >Añadir investigadores al proyecto </h2>
                 </div>
                 <div class="table-responsive">
                     <table>
                         <table class="table table-striped table-hover">
-                            @if($researchers->isEmpty())
+                            @if($roleUsers->isEmpty())
                                 <thead>
                                 <tr>
                                     <th>No hay investigadores asociados</th>
@@ -43,16 +42,16 @@
                             </tr>
                             </thead>
 
-                            @foreach($researchers as $research)
+                            @foreach($roleUsers as $roleUser)
                                 <tr>
-                                    <td>{{$research->id}}</td>
-                                    <td>{{$research->name}}</td>
-                                    <td>{{$research->created_at}}</td>
+                                    <td>{{$roleUser->id}}</td>
+                                    <td>{{$roleUser->name}}</td>
+                                    <td>{{$roleUser->created_at}}</td>
                                     <td >
-                                        <form action="{{ route('Investigadores.destroy',['research'=>$research->id, 'id'=>$id])}}" method="post">
+                                        <form action="{{ route('Investigadores.store',['research'=>$roleUser->id, 'id'=>$id])}}" method="post">
                                             @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-pill btn-sm btn-outline-danger btn-block" onclick=" return confirm('Esta seguro que desea eliminar a {{$research->name}}')" >Eliminar</button>
+                                            @method('POST')
+                                            <button class="btn btn-pill btn-sm btn-outline-success btn-block">Añadir</button>
                                         </form>
                                     </td>
                                 </tr>

@@ -7,6 +7,7 @@ use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Translation\Dumper\PoFileDumper;
 
 class ResearchesController extends Controller
 {
@@ -17,8 +18,10 @@ class ResearchesController extends Controller
      */
     public function index(Request $request)
     {
-        $researchers = Project::with('research')->where('id','=',$request->get('id'))->get();
-        return view('guardian.researches.index',compact('researchers'));
+        $researchers = Project::with('research')->where('id','=',$request->get('id'))->first();
+        $researchers = $researchers['research'];
+        $id = $request->get('id');
+        return view('guardian.researches.index',compact('researchers','id'));
     }
 
     /**
@@ -26,9 +29,15 @@ class ResearchesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $roleUsers = Role::with('users')->where('slug','=','researcher')->first();
+        $roleUsers = $roleUsers['users'];
+        $roleUsers = $roleUsers->where('device_token','!=',null);
+        //dd($roleUsers);
+        $id = $request->get('id');
+
+        return view('guardian.researches.add',compact('roleUsers','id'));
     }
 
     /**
@@ -39,7 +48,10 @@ class ResearchesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = Project::find($request->get('id'));
+        $project->research()->attach($request->get('research'));
+        return  redirect("Investigadores/create?id=".$request->get('id'))->with('success', ' Investigador Añadido') ;
+
     }
 
     /**
@@ -82,8 +94,14 @@ class ResearchesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,Request $request)
     {
-        //
+        $project = Project::find($request->get('id'));
+        if($project->research()->detach($id)){
+            return  redirect("Investigadores?id=".$request->get('id'))->with('success', ' Investigador eliminado') ;
+        }else{
+            return  redirect("Investigadores?id=".$request->get('id'))->with('error', ' No se pudo eliminar al investigador') ;
+        }
+
     }
 }

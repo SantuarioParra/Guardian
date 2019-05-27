@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Key;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,14 @@ class ResourcesAppController extends Controller
         return response()->json($projects_r);
 
     }
-    public function notification(){
-
+    public function get_Fragment(Request $request){
+        $fragment = new Key();
+        $fragment->project_id = $request->get('project_id');
+        $fragment->fragment = $request->get('fragment');
+        if ($fragment->save()){
+            return response()->json(['success'=>"Fragmento recibido correctamente"]);
+        }else{
+            return response()->json(['error'=>"El fragmento no fue recibido correctamente intente en unos momentos"]);
+        }
     }
 }

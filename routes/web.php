@@ -28,7 +28,7 @@ Route::resource('Usuarios','UserController')->middleware('role:admin');
 
 Route::resource('Proyectos', 'ProjectController');
 
-Route::resource('Archivos','FilesController');
+Route::resource('Archivos','FilesController',['except'=>['edit','update']]);
 
 Route::resource('Investigadores','ResearchesController');
 

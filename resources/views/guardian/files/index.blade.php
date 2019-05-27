@@ -21,50 +21,45 @@
                 @endif
 
                 <div class="border-bottom d-flex justify-content-between align-items-center">
-                    <h2 >{{ __('Archivos') }}</h2>
-                    <a href="{{route('Archivos.create',['id'=>$id])}}" class="btn btn-primary btn-sm">Subir</a>
+                    <h2 >{{ __('Archivo de proyecto') }}</h2>
+                    <a href="{{route('Archivos.create',['id'=>$id])}}" class="btn btn-primary btn-sm">Subir/Actualizar</a>
                 </div>
             </div>
         </div>
         <div class="row">
-            @if($files->isEmpty())
+            @if(is_null($files))
                 <div class="col-md-12">
-                    <h4>{{ __('No Files yet') }}</h4>
+                    <h4>{{ __('No File yet') }}</h4>
                 </div>
             @else
-                @foreach($files as $file)
-                    <div class="col-md-3">
-                        <div class="py-2">
-                            <div class="card" style="max-width: 18rem;">
-                                <div class="card-header d-flex justify-content-between align-items-center">
 
-                                    <h4 class="card-text"> {{$file->name}}</h4>
+                    <div class="col-md-12">
+                        <div class="py-2">
+                            <div class="card" >
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h4 class="card-title"> {{$files->name}}</h4>
                                     <div class="btn-group" role="group" aria-label="Opciones">
-                                        <a class="btn btn-sm btn-outline-primary "href="{{route('Archivos.edit', $file->id )}}"><i class="icon-pencil"></i> </a>
                                         @role('admin')
-                                        <form action="{{route('Archivos.destroy', $file->id)}}" method="post">
+                                        <form action="{{route('Archivos.destroy', $files->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button  class="btn btn-sm btn-outline-danger" onclick=" return confirm('Esta seguro que desea eliminar el archivo {{$file->name}}')" ><a class="fa fa-times" ></a></button>
+                                            <button  class="btn btn-sm btn-outline-danger" onclick=" return confirm('Esta seguro que desea eliminar el archivo {{$files->name}}')" ><a class="fa fa-times" ></a></button>
                                         </form>
                                         @endrole
                                     </div>
-
-
                                 </div>
                                 <div class="card-body">
                                     <div class="card-text">
-                                        <h6>Descripción: <small>{{$file->description}}</small></h6>
+                                        <h6>Descripción: <small>{{$files->description}}</small></h6>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="{{route('Archivos.show',$file->id)}}">Descargar <i class="icon-docs"></i></a>
+                                    <a class="btn btn-sm btn-pill btn-outline-info btn-block  " href="{{route('Archivos.show',['id'=>$files->id,'project_id'=>$id])}}">Descargar <i class="icon-docs"></i></a>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                @endforeach
             @endif
         </div>
     </div>

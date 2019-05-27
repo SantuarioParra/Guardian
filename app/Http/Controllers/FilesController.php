@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\File;
+use App\Key;
 use App\Notifications\llavesNotification;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
+use function Sodium\compare;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Illuminate\Support\Facades\Storage;
@@ -48,8 +50,11 @@ class FilesController extends Controller
      */
     public function store(Request $request)
     {
+
         $cont=0;
         $id = $request->get('id');
+        $one = File::where('project_id','=',$id);
+        if($one==null){
         //obtencion de datos
         $investigadores = Project::with('research')->find($id);
         $investigadores = $investigadores['research'];
@@ -63,7 +68,6 @@ class FilesController extends Controller
             $lideres = User::where('id','=',$lideres->f_leader)->get();
             $cont +=1;
         }
-
 
         if ($request->hasFile('file')){
             $file = $request->file('file');
@@ -102,6 +106,7 @@ class FilesController extends Controller
                     }
                     $fragmentos = explode(",", $shamirD->getOutput());
                     array_pop($fragmentos);
+                    //dd($fragmentos);
                     if ($cont==2){
                         for ($i=0; $i<$cont; $i++){
                             $user = $lideres[$i] ;
@@ -132,6 +137,11 @@ class FilesController extends Controller
                 return redirect("Archivos?id=$id")->with('error', 'Ha ocurrido un problema...');
             }
 
+
+        }
+        }
+        else{
+            return redirect("Archivos?id=$id")->with('error', 'Ya existe un archivo de proyecto, actualicelo con una nueva version o eliminelo para subir uno nuevo');
         }
     }
 
@@ -141,18 +151,45 @@ class FilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( Request $request,$id)
     {
-
+        $key='';
         $file_c = File::find($id);
+        //Se obtienen los fragmentos de la base de datos
+        $fragments = Key::where('project_id','=',$request->get('project_id'))->get();
+        foreach ($fragments as $fragment){
+            $key = $key.$fragment->fragment.',';
+        }
+        $key = substr($key,0,-1);
+
+        //incia el ´proceso de reconstruccion
+        $shamir_unir = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -u -f \"$key\" -min $file_c->minr");
+        $shamir_unir->run();
+        // executes after the command finishes
+        if (!$shamir_unir->isSuccessful()) {
+            throw new ProcessFailedException($shamir_unir);
+        }
+        $key = $shamir_unir->getOutput();
+        $key = substr($key,2,-3); //se limpia la llave de caracteres raros
 
         if(Storage::disk('ftp')->exists($file_c->name)){
             $content = Storage::disk('ftp')->get($file_c->name);
             Storage::disk('local')->put($file_c->name,$content);
-             //Storage::disk('local')->move($file,public_path('uploads'));
-            return redirect("Archivos?id=$file_c->project_id")->with('success', ' Archivo descargado') ;
+
+            $url_temp = public_path('\uploads\\').$file_c->name;//obtener url
+
+            //Proceso de descifrado
+            $aesD = new Process("python C:\laragon\www\Guardian\AES_Scripts\AES.py -d -f \"$url_temp\" -k \"$key\" ");
+            $aesD->run();
+            // executes after the command finishes
+            if (!$aesD->isSuccessful()) {
+                throw new ProcessFailedException($aesD);
+            }
+            $respuesta= $aesD->getOutput();
+
+            return  response()->download($url_temp)->deleteFileAfterSend();
         }else{
-            return redirect("Archivos?id=$file_c->project_id")->with('error', 'Ha ocurrido un problema...');
+            return  redirect("Archivos?id=$file_c->project_id")->with('error', 'Ha ocurrido un problema...');
         }
 
     }
@@ -177,7 +214,7 @@ class FilesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -188,6 +225,13 @@ class FilesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $file = File::find($id);
+        if(Storage::disk('ftp')->delete($file->name)){
+            $file->delete();
+            return redirect("Archivos?id=$file->project_id")->with('success', ' Archivo Eliminado') ;
+        }else{
+            return redirect("Archivos?id=$file->project_id")->with('error', 'Ha ocurrido un problema...');
+        }
+
     }
 }

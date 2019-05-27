@@ -18,7 +18,7 @@ class Project extends Model
     }
 
     public function files(){
-        return $this->hasMany('App\File');
+        return $this->hasOne('App\File');
     }
 
     public function research(){
