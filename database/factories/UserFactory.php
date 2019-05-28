@@ -20,6 +20,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'device_token'=>'dN-sfRejVws:APA91bEc5Hoor_Yt5dUjhPAjxpTlNjQh9T2aIbf0gZdy9LHnellbnbeG5GVAPKzKVsOkkSuINzMG_J6eotZVYhGS8sYs0iGHcLeIWCTW6nQyeBUKplX9eI57qN2yz69k1xe3DjfepSNv',
         'remember_token' => Str::random(10),
     ];
 });
