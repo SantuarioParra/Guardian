@@ -2,20 +2,114 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1ca3ffb-0505-4e33-a92c-025f298e4de3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../resources/views/guardian/researches/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/bootstrap-datepicker.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/jquery.fancybox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/slick.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/blue-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/dark-red-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/default-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/green-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/orange-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/pink-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/purple-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/red-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/violet-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/css/theme-color/yellow-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/about-us/abtus-img-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/about-us/abtus-img-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/about-us/abtus-img-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/about-us/abtus-img-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/about-us/abtus-img-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/about-us/abtus-img-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/banner-ads.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/blog-banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/chef/chef-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/chef/chef-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/chef/chef-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/chef/chef-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/chef/chef-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/chef/chef-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/counter-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/big/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/fancybox_buttons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/fancybox_loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/fancybox_loading@2x.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/fancybox_overlay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/fancybox_sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/fancybox_sprite@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/gallery/small/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/menu/item-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/news/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/news/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/news/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/news/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/preloader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/slider/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/slider/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/slider/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/testimonial-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/testimonial-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/testimonial-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/img/testimonial-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/bootstrap-datepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/jquery.counterup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/jquery.fancybox.pack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/jquery.mixitup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/slick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/js/waypoints.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../public/assets/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/AES_Scripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AES_Scripts.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MLP2.rar" beforeDir="false" afterPath="$PROJECT_DIR$/MLP2.rar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Secret_Sharing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Secret_Sharing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/FilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/FilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/ResearchesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/ResearchesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../app/Http/Controllers/ResourcesAppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../app/Http/Controllers/ResourcesAppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/migrations/2019_05_23_165550_create_llavero_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/../database/migrations/2019_05_23_165550_create_keys_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resources/views/guardian/files/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/guardian/files/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resources/views/guardian/files/update.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../resources/views/guardian/researches/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/guardian/researches/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,15 +118,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/AES_Scripts$AES_Cipher.coverage" NAME="AES_Cipher Coverage Results" MODIFIED="1558632684897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/AES_Scripts$Secret_Sharing.coverage" NAME="Secret_Sharing Coverage Results" MODIFIED="1558918195618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AES_Scripts$AES_Cipher.coverage" NAME="AES_Cipher Coverage Results" MODIFIED="1559106970145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/AES_Scripts$Secret_Sharing.coverage" NAME="Secret_Sharing Coverage Results" MODIFIED="1559107657606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AES.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="354">
               <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -41,11 +135,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Secret_Sharing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+            <state relative-caret-position="408">
+              <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+              <folding>
+                <element signature="e#2#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/secretsharing/primes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -67,6 +173,7 @@
       <list>
         <option value="$PROJECT_DIR$/AES_Cipher.py" />
         <option value="$PROJECT_DIR$/AES.py" />
+        <option value="$PROJECT_DIR$/venv/Lib/site-packages/secretsharing/primes.py" />
         <option value="$PROJECT_DIR$/Secret_Sharing.py" />
       </list>
     </option>
@@ -82,7 +189,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -94,6 +200,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -116,7 +223,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AES_Cipher">
+  <component name="RunManager" selected="Python.Secret_Sharing">
     <configuration name="AES_Cipher" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="AES_Scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -153,7 +260,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Secret_Sharing.py" />
-      <option name="PARAMETERS" value="-d -k HOAy2M+1a0JwCryZZ9ByqaQqAhyQRCXIq2tsXcjyOsA= -min 2 -max 10" />
+      <option name="PARAMETERS" value="-u -f 1-a24bd0b72183bad273ad974e0ef402de4f8b25bc35a9d118c920d492a1ab86ab,2-8c3330b23ab73275db8ffb6987d461a3ccdce73a8c73cb5c7f659265848e933c,3-dd00e185cdcab067db46f640587421404098336a45dc69cb9e64cbe85a72e18f, -min 3" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -212,11 +319,12 @@
       <workItem from="1558410583395" duration="703000" />
       <workItem from="1558473423580" duration="4358000" />
       <workItem from="1558917708666" duration="1547000" />
+      <workItem from="1559104123884" duration="3990000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17272000" />
+    <option name="totallyTimeSpent" value="21262000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -229,9 +337,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29217198" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2954796" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -266,19 +373,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Secret_Sharing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AES.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="354">
           <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/secretsharing/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#177#199#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/secretsharing/primes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Secret_Sharing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+          <folding>
+            <element signature="e#2#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

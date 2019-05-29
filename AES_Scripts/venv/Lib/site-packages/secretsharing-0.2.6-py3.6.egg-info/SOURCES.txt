@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+secretsharing/__init__.py
+secretsharing/charset.py
+secretsharing/entropy.py
+secretsharing/polynomials.py
+secretsharing/primes.py
+secretsharing/sharing.py
+secretsharing.egg-info/PKG-INFO
+secretsharing.egg-info/SOURCES.txt
+secretsharing.egg-info/dependency_links.txt
+secretsharing.egg-info/not-zip-safe
+secretsharing.egg-info/top_level.txt

@@ -73,6 +73,7 @@ class FilesController extends Controller
         if ($request->hasFile('file')){
             $file = $request->file('file');
             $name = $file->getClientOriginalName(); //almacenar el nombre del archivo
+            $name = str_replace(' ','_',$name);
 
             if($one == null || $one->name == $name){
 
@@ -161,10 +162,10 @@ class FilesController extends Controller
             foreach ($fragments as $fragment) {
                 $key = $key . $fragment->fragment . ',';
             }
-            $key = substr($key, 0, -1);
+            /*$key = substr($key, 0, -1);
             foreach ($fragments as $fragment) {
                 $fragment->delete();
-            }
+            }*/
             //incia el ´proceso de reconstruccion
             $shamir_unir = new Process("python C:\laragon\www\Guardian\AES_Scripts\Secret_Sharing.py -u -f \"$key\" -min $file_c->minr");
             $shamir_unir->run();

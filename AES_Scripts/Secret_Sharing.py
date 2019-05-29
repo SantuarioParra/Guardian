@@ -20,6 +20,8 @@ def sdividir(key, minrecu, maxrecu):
 def sunir(fragmentos, minrecu):
     key = str(fragmentos)
     key = key.split(",")
+    key = [item for item in key if item]
+    key = sorted(key)
     secreto = SecretSharer.recover_secret(key[:int(minrecu)])
     secreto = unhexlify(secreto)
     secreto= b64.standard_b64encode(secreto)

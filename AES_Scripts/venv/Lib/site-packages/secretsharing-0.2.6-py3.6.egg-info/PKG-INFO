@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: secretsharing
+Version: 0.2.6
+Summary: Tools for sharing secrets (like Bitcoin private keys), using shamir's secret sharing scheme.
+Home-page: https://github.com/rxl/secret-sharing
+Author: Halfmoon Labs
+Author-email: hello@halfmoon.io
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
