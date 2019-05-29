@@ -2,115 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3c2e1dd-5bad-4d24-8d49-88fbf9187bf7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/bootstrap-datepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/jquery.fancybox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/slick.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/blue-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/dark-red-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/default-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/green-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/orange-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/pink-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/purple-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/red-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/violet-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/theme-color/yellow-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/about-us/abtus-img-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/about-us/abtus-img-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/about-us/abtus-img-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/about-us/abtus-img-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/about-us/abtus-img-5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/about-us/abtus-img-6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/banner-ads.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/blog-banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/chef/chef-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/chef/chef-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/chef/chef-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/chef/chef-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/chef/chef-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/chef/chef-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/counter-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/big/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/fancybox_buttons.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/fancybox_loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/fancybox_loading@2x.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/fancybox_overlay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/fancybox_sprite.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/fancybox_sprite@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/gallery/small/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/menu/item-9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/news/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/news/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/news/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/news/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/preloader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/slider/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/slider/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/slider/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/testimonial-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/testimonial-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/testimonial-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/testimonial-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/bootstrap-datepicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/jquery.counterup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/jquery.fancybox.pack.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/jquery.mixitup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/slick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/js/waypoints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AES_Scripts/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AES_Scripts/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AES_Scripts/MLP2.rar" beforeDir="false" afterPath="$PROJECT_DIR$/AES_Scripts/MLP2.rar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AES_Scripts/Secret_Sharing.py" beforeDir="false" afterPath="$PROJECT_DIR$/AES_Scripts/Secret_Sharing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AES_Scripts/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/AES_Scripts/venv/pip-selfcheck.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="163" column="13" lean-forward="true" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
+            <state relative-caret-position="371">
+              <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="167" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -477,12 +369,12 @@
       <workItem from="1558931675111" duration="1487000" />
       <workItem from="1558963070338" duration="17498000" />
       <workItem from="1558998622676" duration="3594000" />
-      <workItem from="1559087569897" duration="10020000" />
+      <workItem from="1559087569897" duration="10618000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214488000" />
+    <option name="totallyTimeSpent" value="215086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
@@ -866,8 +758,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FilesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="163" column="13" lean-forward="true" selection-start-line="163" selection-start-column="13" selection-end-line="163" selection-end-column="13" />
+        <state relative-caret-position="371">
+          <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="167" selection-end-column="13" />
         </state>
       </provider>
     </entry>
