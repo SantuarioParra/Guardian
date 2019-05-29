@@ -237,7 +237,7 @@ class FilesController extends Controller
         //dd($file->name);
         if(Storage::disk('ftp')->delete("$file->name")){
             $file->delete();
-            return redirect("Archivos?id=$file->project_id")->with('success', ' Archivo Eliminado') ;
+            return redirect("Archivos?id=$file->project_id")->with('success', 'Archivo Eliminado') ;
         }else{
             return redirect("Archivos?id=$file->project_id")->with('error', 'Ha ocurrido un problema...');
         }
